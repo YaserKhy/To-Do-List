@@ -44,24 +44,20 @@ function markAsDone(index) {
 }
 
 function viewList() {
-    myList.innerHTML = "";
+    if(todoarr.length === 0) {
+        myList.innerHTML = "";
+        return;
+    }
+    myList.innerHTML =
+    `<tr>
+        <th> # </th>
+        <th> task </th>
+        <th colspan="2"> actions </th>
+    </tr>`;
     for(let i=0 ; i<todoarr.length ; i++) {
-        // let row = document.createElement("tr");
-        // let todo = document.createElement("td");
-        // todo.textContent = temp;
-        // let delcell = document.createElement("td");
-        // let delbtn = document.createElement("button");
-        // delbtn.setAttribute("id","delbtn");
-        // delbtn.textContent = "Delete";
-        // delbtn.addEventListener("click",function() {
-        //     deleteFromList(i);
-        // })
-        // delcell.appendChild(delbtn);
-        // row.appendChild(todo);
-        // row.appendChild(delcell);
-        // myList.appendChild(row);
         myList.innerHTML +=
         `<tr>
+            <th> ${i+1} </th>
             <td id="todocell"> ${todoarr[i]} </td>
             <td id="actcell"> <button id="delbtn" onclick=deleteFromList(${i})> Delete X </button> </td>
             <td id="actcell"> <button id="donbtn" onclick=markAsDone(${i})> ${(crossed[i]) ? "Undone" : "Done"} </button> </td>
