@@ -1,8 +1,8 @@
-let task = document.getElementById("task");
-let todoarr = [];
-let myList = document.getElementById("myList");
-let err = document.getElementById("err");
-let crossed = [];
+let task = document.getElementById("task");     // input field
+let myList = document.getElementById("myList"); // tasks table
+let err = document.getElementById("err");       // Error message
+let todoarr = [];                               // stores added tasks
+let crossed = [];                               // stores true if done, false if not
 
 function addToList() {
     if(task.value.length !== 0) {

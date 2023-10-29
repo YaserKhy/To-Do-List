@@ -1,32 +1,20 @@
+/* Colors used :
+Wallpaper : purple #9D76D6 , black #001220
+Table : white, purple #9D76D6
+Add Button : blue #0012DD
+Done Button :  green #00A500
+Delete Button : red
+*/
+
 /* Animation for error message */
 @keyframes hrz-shaking {
-    0% {
-        transform: translateX(0)
-    }
-
-    15% {
-        transform: translateX(-5px)
-    }
-
-    30% {
-        transform: translateX(5px)
-    }
-
-    45% {
-        transform: translateX(-5px)
-    }
-
-    60% {
-        transform: translateX(5px)
-    }
-
-    75% {
-        transform: translateX(-5px)
-    }
-
-    100% {
-        transform: translateX(0)
-    }
+    0% {transform: translateX(0)}
+    15% {transform: translateX(-5px)}
+    30% {transform: translateX(5px)}
+    45% {transform: translateX(-5px)}
+    60% {transform: translateX(5px)}
+    75% {transform: translateX(-5px)}
+    100% {transform: translateX(0)}
 }
 
 /* body tag */
@@ -72,17 +60,22 @@ h4 {
     outline: none;
 }
 
+/* input field placeholder */
 #task::placeholder {
-    color : rgb(96, 96, 96)
+    color: rgb(96, 96, 96)
+}
+
+button {
+    border-radius: 5px;
 }
 
 /* Add to list button */
 #addbtn {
-    background-color: rgb(0, 18, 221);
+    background-color: #0012DD;
     color: white;
     font-weight: bold;
     outline: none;
-    border: 1px solid rgb(0, 18, 221);
+    border: 1px solid #0012DD;
     width: 100px;
     height: 30px;
     margin: 0;
@@ -159,7 +152,7 @@ h4 {
     padding: 10px;
     font-size: 20px;
     height: 30px;
-    background-color: rgb(157, 118, 214);
+    background-color: #9D76D6;
     color: white;
 }
 
@@ -194,6 +187,7 @@ h4 {
     margin: auto;
     text-align: center;
     font-size: 20px;
+    font-family: "Signika Negative", sans-serif;
 }
 
 /* Delete button hover */
@@ -205,12 +199,13 @@ h4 {
 
 /* Done button */
 #donbtn {
-    background-color: rgb(0, 165, 0);
+    background-color: #00A500;
     color: white;
     outline: none;
     margin: auto;
     text-align: center;
     font-size: 20px;
+    font-family: "Signika Negative", sans-serif;
 }
 
 /* Done button hover */
@@ -231,4 +226,72 @@ h4 {
 /* Done task */
 del {
     color: grey;
+}
+
+@media (max-width:1023px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        background-image: url("wallpaper3.svg");
+    }
+
+    h1 {
+        font-size: 4em;
+        margin-top: 3em;
+    }
+
+    #wrapper1 {
+        height: 400px;
+    }
+
+    #myList {
+        margin: 1.5em;
+    }
+
+    #myList th,
+    #myList td {
+        border: 1px solid black;
+        padding: 0.5em;
+        font-size: 1em;
+    }
+
+    #myList tr:hover {
+        background-color: white;
+    }
+
+    #todocell {
+        width: 200px;
+    }
+
+    #actcell {
+        width: 100px;
+    }
+
+    #delbtn {
+        background-color: red;
+        color: white;
+        outline: none;
+        margin: auto;
+        text-align: center;
+        font-size: 1em;
+    }
+
+    #delbtn:hover {
+        background-color: rgb(180, 0, 0);
+        cursor: pointer;
+        transition: 0.5s;
+    }
+
+    #donbtn {
+        background-color: #00A500;
+        color: white;
+        outline: none;
+        margin: auto;
+        text-align: center;
+        font-size: 1em;
+    }
 }
