@@ -12,9 +12,9 @@
 </head>
 <body>
     <h1>To Do List</h1>
-    <input id="task" type="text" placeholder="Enter a task">
+    <input id="task" type="text" placeholder="Enter a task" oninput="checkLength()">
     <button id="addbtn" onclick="addToList()">Add To List</button>
-    <h4 id="err"> INVALID INPUT ! </h4>
+    <h4 id="err"> ERROR </h4>
     <div id="wrapper1">
         <table id="myList"></table>
     </div>

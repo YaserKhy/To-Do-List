@@ -1,14 +1,24 @@
-let task = document.getElementById("task");     // input field
-let myList = document.getElementById("myList"); // tasks table
+let task = document.getElementById("task");     // Input field
+let myList = document.getElementById("myList"); // Tasks table
 let err = document.getElementById("err");       // Error message
-let todoarr = [];                               // stores added tasks
-let crossed = [];                               // stores true if done, false if not
+let todoarr = [];                               // Stores added tasks
+let crossed = [];                               // Stores true if done, false if not
+let addbtn = document.getElementById("addbtn"); // Add to list button
+let limit = 15;                                 // Characters limit
+
+function checkLength(){
+    if(task.value.length <= limit) {
+        raiseErr("",false)
+    }
+    else {
+        task.value = task.value.substring(0,limit);
+        raiseErr("ERROR : Reached maximum character limit.",true)
+    }
+}
 
 function addToList() {
     if(task.value.length !== 0) {
-        err.style.visibility = "hidden";
-        err.style.marginBottom = "0";
-        task.style.borderBottomColor = "blue";
+        raiseErr("",false)
         task.value.trim();
         todoarr.push(task.value);
         crossed.push(false);
@@ -16,10 +26,34 @@ function addToList() {
         viewList();
     }
     else {
+        raiseErr("ERROR : Invalid input.", true)
+    }
+}
+
+function raiseErr(msg,state) {
+    if(state===true) {
+        err.innerHTML = msg;
         err.style.visibility = "visible";
         err.style.marginBottom = "5px";
         err.style.animation = "hrz-shaking 0.5s ease-in-out";
         task.style.borderBottomColor = "red";
+        addbtn.disabled = true;
+        addbtn.style.backgroundColor = "grey";
+        addbtn.style.borderColor = "grey";
+        addbtn.style.transition = "0.5s";
+        addbtn.style.cursor = "auto";
+        addbtn.style.color = "rgb(70,70,70)";
+    }
+    if(state===false) {
+        err.innerHTML = "ERROR";
+        err.style.visibility = "hidden";
+        err.style.marginBottom = "0";
+        task.style.borderBottomColor = "blue";
+        addbtn.disabled = false;
+        addbtn.style.backgroundColor = "#0012DD";
+        addbtn.style.borderColor = "#0012DD";
+        addbtn.style.cursor = "pointer";
+        addbtn.style.color = "white";
     }
 }
 
